@@ -8,6 +8,7 @@ function Completed({ state, dispatch }) {
   const { reading, complete ,info} = state
   const [flag, setFlag] = useState(false)
   const BooksJson = localStorage.getItem('complete')
+  if(!BooksJson){localStorage.setItem('complete', '[]')}
   const booksList = JSON.parse(BooksJson)
   useEffect(() => {
     setRating(booksList)

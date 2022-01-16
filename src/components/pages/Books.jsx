@@ -40,6 +40,7 @@ function Books({ state, dispatch }) {
   const addBookToList = (i, id) => {
     const redingList = [...books]
     const BooksJson = localStorage.getItem('reading')
+    if(!BooksJson){localStorage.setItem('reading', '[]')}
     let BookList = JSON.parse(BooksJson)
     if (BooksJson === '[]') {
       BookList = new Array()
@@ -122,6 +123,7 @@ function Books({ state, dispatch }) {
 
   const jsonBook = JSON.stringify(details)
   const jsonDetails = localStorage.getItem('details')
+  if(!jsonDetails){localStorage.setItem('details', '[]')}
   if (jsonDetails === '[]') {
     localStorage.setItem('details', jsonBook)
   }

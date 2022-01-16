@@ -10,9 +10,11 @@ function Reading({ state, dispatch }) {
   const [flag, setFlag] = useState(false)
   const { details } = state
   const BooksJson = localStorage.getItem('reading')
+  if(!BooksJson){localStorage.setItem('reading', '[]')}
   const booksList = JSON.parse(BooksJson)
   const addToCompleted = (i) => {
-    const BooksComplete = localStorage.getItem('complete') || '[]'
+    const BooksComplete = localStorage.getItem('complete')
+    if(!BooksComplete){localStorage.setItem('complete', '[]')}
     let BookParse = JSON.parse(BooksComplete)
     if (BooksComplete === '[]') {
       BookParse = new Array()

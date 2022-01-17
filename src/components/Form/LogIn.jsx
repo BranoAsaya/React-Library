@@ -15,13 +15,13 @@ function LogIn({ state, dispatch }) {
   }
   const handelSubmit = (e) => {
     e.preventDefault()
-    if (email === '' || password === '') return
+    if (email === '' || password === '') return alert('empty inputs')
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_FIREBASE}`
     let data
     axios
       .post(url, { email: email, password: password })
       .then((res) => (data = JSON.stringify(res)))
-      .catch((error) => console.log(error))
+      .catch((error) =>{throw alert(error.response.data.error.message)})
       .then(() => {
         localStorage.setItem('data', data)
         const emailJson = JSON.stringify(email)

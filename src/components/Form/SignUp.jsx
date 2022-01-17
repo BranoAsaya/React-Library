@@ -15,14 +15,14 @@ function SignUp({ state, dispatch }) {
     dispatch(action)
   }
   const handelSubmit = (e) => {
-    if (confirm !== password) return
+    if (confirm !== password) return alert('password not confirmed')
     e.preventDefault()
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_FIREBASE}`
     let data
     axios
       .post(url, { email: email, password: password })
       .then((res) => (data = JSON.stringify(res)))
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error.response))
       .then(() => {
         localStorage.setItem('data', data)
         const emailJson = JSON.stringify(email)

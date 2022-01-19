@@ -72,7 +72,7 @@ const bookDetails = info ? (
             onChange={(e) => commentHandler(e, book.id)}
             placeholder={'Comment'}
           ></textarea>
-          <span>stars {+book.etag || 0} {stars} <a href={book.volumeInfo.infoLink} target="_blank">more</a></span>
+          <span>{+book.etag || 0} {stars} <a href={book.volumeInfo.infoLink} target="_blank">more</a></span>
         </div>
       )
     })}

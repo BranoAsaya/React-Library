@@ -22,7 +22,7 @@ function LogOut({ state, dispatch }) {
         title="Log Out"
         className="logOut"
       >
-        <FaPowerOff />
+        <FaPowerOff color="red"/>
       </button>
     </>
   )

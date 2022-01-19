@@ -11,8 +11,18 @@ function App() {
   const { email, password, isSign } = state
   const emailJson = localStorage.getItem('email')
   const emailAuth = JSON.parse(emailJson)
+
+  const readingJ = localStorage.getItem('reading')
+  if (!readingJ) {
+    const readingJson = localStorage.setItem('reading', '[]')
+    const completeJson = localStorage.setItem('complete', '[]')
+    const detailsJson = localStorage.setItem('details', '[]')
+    const infoJson = localStorage.setItem('info', '[]')
+  }
+
+
   useEffect(() => {
-    if (emailAuth) {  
+    if (emailAuth) {
       const action = {
         input: 'isSign',
         value: true,
@@ -52,9 +62,9 @@ function App() {
       <>
         <article className="article-container">
           <div className="container">
-            
+
             <form className="form-contact">
-            <br /> <br />
+              <br /> <br />
 
               <img
                 src="https://i.ibb.co/fpv3HSt/open-book32355.png"
@@ -77,7 +87,7 @@ function App() {
             </form>
           </div>
         </article>
-        
+
       </>
     )
   }

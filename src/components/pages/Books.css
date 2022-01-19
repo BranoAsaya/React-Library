@@ -165,7 +165,7 @@ section:empty {
 @media all and (max-width: 780px) {
 
   .div-details {
-    background-size: 17vw 22vh;
+    background-size: 10vw 10vh;
     background-position: top;
     background-position-x: right;
   }

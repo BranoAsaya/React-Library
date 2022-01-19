@@ -22,7 +22,7 @@ function SignUp({ state, dispatch }) {
     axios
       .post(url, { email: email, password: password })
       .then((res) => (data = JSON.stringify(res)))
-      .catch((error) => console.log(error.response))
+      .catch((error) => {throw alert(error.response.data.error.message)})
       .then(() => {
         localStorage.setItem('data', data)
         const emailJson = JSON.stringify(email)
